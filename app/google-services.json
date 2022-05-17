@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457049281065",
+    "project_id": "extensibleouverture",
+    "storage_bucket": "extensibleouverture.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457049281065:android:321f9a73209c06d9bd8238",
+        "android_client_info": {
+          "package_name": "com.vlm.extensibleouverture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457049281065-b91v5u05i0ke4krgcgm93vb7m01ssk3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcMn00ymSeEeX4Gy6TLJxpXfKIgZQ3Xqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457049281065-b91v5u05i0ke4krgcgm93vb7m01ssk3b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

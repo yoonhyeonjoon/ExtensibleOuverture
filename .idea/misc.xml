@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Apps/ExtensibleOuverture/app/src/main/res/drawable/outline_camera_alt_24.xml" value="0.1585" />
+        <entry key="..\:/Users/Yoon/.gradle/caches/transforms-3/3e5c9f1291d85a786ac86475ebad82ef/transformed/vlmLibrary-release/res/layout/imagecard_full.xml" value="0.2640625" />
+        <entry key="..\:/Users/Yoon/.gradle/caches/transforms-3/a27568c6ff5198d27c5d54b6819dfce0/transformed/ucrop-2.2.6-native/res/drawable/ucrop_ic_crop.xml" value="0.1135" />
+        <entry key="..\:/Users/Yoon/.gradle/caches/transforms-3/db3e5f617893e59902fc3a87a7502ab2/transformed/vlmLibrary/res/drawable/balloony_progress_circle.xml" value="0.1135" />
+        <entry key="..\:/Users/Yoon/.gradle/caches/transforms-3/db3e5f617893e59902fc3a87a7502ab2/transformed/vlmLibrary/res/drawable/text_button_rect_possible_dialog.xml" value="0.1135" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

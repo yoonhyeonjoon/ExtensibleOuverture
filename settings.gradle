@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()//kakao 연동을 위해 추가하였다 + inAppBilling을 위해 필요하다.
+//        maven{ url 'https://devrepo.kakao.com/nexus/content/groups/public/' }//kakao 연동을 위해 추가하였다.
+        maven{ url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+//        maven{ url 'https://dl.bintray.com/kotlin/kotlin-eap' } //이것을 쓰지말라. 뭔가가 안됨
+        maven{ url "https://jitpack.io" } // 사진 crop하는 거 https://github.com/Yalantis/uCrop
+        // maven{ url "https://maven.google.com "} // 글씨
+        maven{ url "https://naver.jfrog.io/artifactory/maven/"} // 네이버
+    }
+}
+rootProject.name = "ExtensibleOuverture"
+include ':app'

@@ -1,0 +1,180 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'// kotlin-android-extension 지원중단으로 parcelize로 바꿈 Findviewbyid를 제거하기 위해 코틀린 익스텐션 플러그인을 적용한다.
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    //FCM을 위해 추가하였다
+    id 'com.google.gms.google-services'
+    // Apply the Crashlytics Gradle plugin
+    id 'com.google.firebase.crashlytics'
+}
+
+
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.vlm.extensibleouverture"
+        minSdk 29
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        compose true
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+
+    //ComposeSetting
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation fileTree(dir: 'C:\\Apps\\ExtensibleOuverture\\app\\libs', include: ['*.aar', '*.jar'], exclude: [])
+    implementation files('libs/vlmLibrary.aar')
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation "androidx.compose.compiler:compiler:$compose_version"
+    implementation "androidx.compose.animation:animation:$compose_version"
+    implementation "io.coil-kt:coil-compose:2.0.0-rc01"
+    implementation "androidx.compose.ui:ui-util:$compose_version"
+    implementation "androidx.compose.foundation:foundation:$compose_version" // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation "androidx.compose.material:material:$compose_version" // Compose Material Design
+    implementation "androidx.compose.material:material-icons-core:$compose_version" // Material design icons
+    implementation "androidx.compose.material:material-icons-extended:$compose_version" // Material design icons
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version" // Integration with observables
+    implementation "androidx.compose.runtime:runtime-rxjava2:$compose_version"
+    implementation "androidx.activity:activity-compose:1.4.0" // Integration with activities
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1" // Integration with ViewModels
+    implementation "androidx.navigation:navigation-compose:2.5.0-alpha04"
+    implementation "androidx.paging:paging-compose:1.0.0-alpha14"
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+    implementation "androidx.paging:paging-common-ktx:3.1.1"
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.6-alpha" //SwipeRefresh를 위한 추가
+    implementation "com.chargemap.compose:numberpicker:1.0.3" //number picker
+//    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:$compose_version'
+
+
+
+    // If you want to additionally use the CameraX View class
+    /*카메라*/
+    // The following line is optional, as the core library is included indirectly by camera-camera2
+    implementation "androidx.camera:camera-core:1.1.0-beta03@aar"
+    implementation "androidx.camera:camera-camera2:1.0.2"
+    // If you want to additionally use the CameraX Lifecycle library
+    implementation "androidx.camera:camera-lifecycle:1.0.2"
+    implementation "androidx.camera:camera-view:1.1.0-beta03"
+    // If you want to additionally use the CameraX Extensions library
+    implementation "androidx.camera:camera-extensions:1.1.0-beta03"
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'        //viewmodels 안나와서 씀
+
+
+
+    /** ucrop 사용하는거임 */
+    implementation 'com.github.yalantis:ucrop:2.2.6-native'
+    /*페이스북 - 파이어베이스 로그인*/
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    /*work*/
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
+//    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.browser:browser:1.4.0'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    //파이어베이스 crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    //채팅 모듈을 위해 파이어 베이스를 추가하였다
+    implementation 'com.google.firebase:firebase-firestore:24.1.0'
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
+    implementation 'com.google.firebase:firebase-storage:20.0.1'
+    implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
+    implementation 'com.google.firebase:firebase-database:20.0.4'
+    //딥링크를 위해 사용하였다
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+    // 구글 로그인 API 사용을 위해 추가하였다.
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    // 코루틴 사용을 위해 추가하였다
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+
+    //파이어베이스 await
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0" //kotlinx.coroutines.tasks.await
+
+
+
+
+
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.6-alpha"
+    implementation "com.google.accompanist:accompanist-pager:0.19.0"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.16.1"
+    implementation "com.google.accompanist:accompanist-glide:0.15.0"
+    implementation "com.google.accompanist:accompanist-insets:0.18.0"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.20.3"
+//    implementation "com.google.accompanist:accompanist-coil:0.7.1"
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0-alpha04'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.0-alpha04'
+
+
+    //코틀린 어노테이션 프로세서에서 처리될 수 있도록 의존성에 추가한다.
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.4.1'
+    //PreferenceManager getDefaultSharedPreferences deprecated in Android Q 문제때문에 아래 의존성을 추가하였다
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+
+    /*힐트*/
+    implementation 'com.google.dagger:dagger:2.41'
+    kapt 'com.google.dagger:dagger-compiler:2.41'
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.41"
+
+    implementation "com.kakao.sdk:v2-user:2.5.0" // 카카오 로그인
+
+
+
+}
