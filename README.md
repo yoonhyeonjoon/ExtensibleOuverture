@@ -125,7 +125,7 @@ enum class FrontSections(
 #### 1. Data Structure Flow
 
 <p align="center">
-  <img src="readmeImg/worldofvlm.png">
+  <img src="readmeImg/worldofvlm_shrink.png">
 </p>
 
 <h4 align="center"> App structure Data Flow </h4>
