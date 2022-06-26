@@ -1,4 +1,4 @@
-# YoonHyeonJoon's Android Example Structure
+# Android Example Structure
 
 <br>
 
